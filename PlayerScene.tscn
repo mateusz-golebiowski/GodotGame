@@ -14,7 +14,7 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
-frame = 3
+frame = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8, 51 )
