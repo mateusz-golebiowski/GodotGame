@@ -1,57 +1,37 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 # Declare member variables here. Examples:
-export var speed = 800
+export var speed = 200
 var screen_size # Size of the game window.
 
-var animation = 'idle'
-var started = false
+var velocity = Vector2()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 
-var rad = 0.01
-var addRad = 0.05
-export (int) var engine_thrust
-export (int) var spin_thrust
-
-var thrust = Vector2()
-var rotation_dir = 0
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
-	if not started:
-		if rad >= 1:
-			addRad = -addRad
-		elif rad <= 0.01:
-			addRad = -addRad	
-		rad += addRad
-	
-
-	$AnimatedSprite.play(animation)
+	print('test')
 
 		
 
-func _input(ev):
-	if Input.is_key_pressed(KEY_SPACE):
-		animation = 'default'
-		if started:
-			thrust = Vector2(engine_thrust, 0)
-			rotation_dir -= 1
-		else:
-			if (rotation_dir <= 0):
-				rotation_dir += 1
-			started = true
-			get_parent().speed = speed
-	else:
-		animation = 'idle'
-		thrust = Vector2()
+func get_input():
+	velocity = Vector2()
+	if Input.is_action_pressed("ui_right"):
+		velocity.x += 1
+	if Input.is_action_pressed("ui_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("ui_down"):
+		velocity.y += 1
+	if Input.is_action_pressed("ui_up"):
+		print('up')
+		velocity.y -= 1
+	velocity = velocity.normalized() * speed
 
 
 
 func _physics_process(delta):
-	print(rotation)
-	set_applied_force(thrust.rotated(rotation - PI/2))
-	set_applied_torque(rotation_dir * spin_thrust)
+	get_input()
+	velocity = move_and_slide(velocity)

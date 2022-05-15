@@ -1,219 +1,29 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/player/__jet_pack_man_no_weapon_white_helmet_flying.png" type="Texture" id=1]
+[ext_resource path="res://assets/shooter/player_green.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/player/__jet_pack_man_no_weapon_white_helmet_standing_die.png" type="Texture" id=3]
-[ext_resource path="res://assets/player/__jet_pack_man_no_weapon_white_helmet_standing_idle.png" type="Texture" id=4]
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 692, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1384, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 2076, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 2768, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 692, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1384, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 2076, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 2768, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 692, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1384, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 2076, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 2768, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 692, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1384, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 2076, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 2768, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=28]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=29]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 692, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=30]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1384, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=31]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 2076, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=32]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 2768, 599, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=33]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=34]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 692, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=35]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1384, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=36]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 2076, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=37]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 2768, 1198, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 692, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 1384, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 2076, 0, 692, 599 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 2768, 0, 692, 599 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "default",
-"speed": 30.0
-}, {
-"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
-"loop": true,
-"name": "idle",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
-"loop": true,
-"name": "death",
-"speed": 15.0
+"name": "New Anim",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=38]
-extents = Vector2( 145, 256.5 )
+extents = Vector2( 128, 62 )
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-engine_thrust = 800
-spin_thrust = 2500
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 16 )
-animation = "idle"
-frame = 5
+animation = "New Anim"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 18, -4.125 )
+position = Vector2( -4, 1.5 )
 scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 38 )
