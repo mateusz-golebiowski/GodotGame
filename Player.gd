@@ -1,5 +1,4 @@
-extends Area2D
-
+extends RigidBody2D
 
 # Declare member variables here. Examples:
 export var speed = 800
@@ -13,14 +12,16 @@ func _ready():
 
 var rad = 0.01
 var addRad = 0.05
+export (int) var engine_thrust
+export (int) var spin_thrust
+
+var thrust = Vector2()
+var rotation_dir = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
 
-	velocity.x += 360 *  sin(rad)
-	velocity.y -= 360 *  cos(rad)
 	if not started:
 		if rad >= 1:
 			addRad = -addRad
@@ -28,22 +29,29 @@ func _process(delta):
 			addRad = -addRad	
 		rad += addRad
 	
-	if velocity.length() > 0:
-		rotation = rad
-		if started:
 
-			velocity = velocity.normalized() * speed
-			position += velocity * delta
+	$AnimatedSprite.play(animation)
 
-		$AnimatedSprite.play(animation)
-	else:
-		$AnimatedSprite.stop()
+		
 
 func _input(ev):
-	if ev is InputEventKey and ev.scancode == KEY_SPACE:
+	if Input.is_key_pressed(KEY_SPACE):
 		animation = 'default'
-		var velocity = Vector2.ZERO # The player's movement vector.
-		velocity.x += 1
-		started = true
-		get_parent().speed = speed
-		
+		if started:
+			thrust = Vector2(engine_thrust, 0)
+			rotation_dir -= 1
+		else:
+			if (rotation_dir <= 0):
+				rotation_dir += 1
+			started = true
+			get_parent().speed = speed
+	else:
+		animation = 'idle'
+		thrust = Vector2()
+
+
+
+func _physics_process(delta):
+	print(rotation)
+	set_applied_force(thrust.rotated(rotation - PI/2))
+	set_applied_torque(rotation_dir * spin_thrust)

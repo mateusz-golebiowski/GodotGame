@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=2]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -25,6 +26,8 @@ margin_top = 24.0
 margin_right = 145.0
 margin_bottom = 44.0
 text = "Exit"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
