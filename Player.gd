@@ -39,4 +39,4 @@ func get_input(delta):
 
 func _physics_process(delta):
 	get_input(delta)
-	velocity = move_and_slide(velocity)
+	velocity = move_and_collide(velocity*delta)

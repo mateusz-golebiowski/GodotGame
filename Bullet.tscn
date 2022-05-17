@@ -41,10 +41,11 @@ script = ExtResource( 2 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 9, 4 )
 rotation = 1.5708
 shape = SubResource( 6 )
+
+[connection signal="body_shape_entered" from="." to="." method="_on_Area2D_body_shape_entered"]
