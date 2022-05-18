@@ -1,22 +1,23 @@
 extends KinematicBody2D
 
-# Declare member variables here. Examples:
+
 export var speed = 200
-var screen_size # Size of the game window.
+var screen_size 
+var health = 100
+
 
 var velocity = Vector2()
 var Bullet = preload("res://Bullet.tscn")
+
 var lastShoot = OS.get_ticks_msec()
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	screen_size = get_viewport_rect().size
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print('test')
-
-		
+	if health <= 0:
+		get_tree().change_scene("res://GameOver.tscn")
 
 func get_input(delta):
 	velocity = Vector2()
@@ -40,3 +41,11 @@ func get_input(delta):
 func _physics_process(delta):
 	get_input(delta)
 	velocity = move_and_collide(velocity*delta)
+
+
+
+func _on_Area2D_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if (body.is_in_group("asteroids")):
+		body.call_deferred("explode")
+		health -= 100
+		print(health)
