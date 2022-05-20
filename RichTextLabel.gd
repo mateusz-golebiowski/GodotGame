@@ -1,7 +1,4 @@
-extends Node2D
-
-export var speed = 0;
-
+extends RichTextLabel
 
 
 # Declare member variables here. Examples:
@@ -11,7 +8,7 @@ export var speed = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.score = 0
+	self.text = "Game over\nYour score: " + String(Global.score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
