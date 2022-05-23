@@ -1,8 +1,6 @@
-extends Node
+extends RichTextLabel
 
 
-var score = 0
-var ammo = 100
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,5 +12,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	self.text = String(Global.ammo)
