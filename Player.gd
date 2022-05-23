@@ -22,6 +22,7 @@ func _process(delta):
 
 func get_input(delta):
 	velocity = Vector2()
+	var rect = get_viewport().size
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):
@@ -29,12 +30,10 @@ func get_input(delta):
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += 1
 	if Input.is_action_pressed("ui_up"):
-		print('up')
 		velocity.y -= 1
 	if Input.is_action_pressed("fire"):
 		if OS.get_ticks_msec() - lastShoot > 100 and ammo > 0:
 			ammo -= 1;
-			print(ammo)
 			Bullet.instance().init(self, 1000)
 			lastShoot = OS.get_ticks_msec()
 	velocity = velocity.normalized() * speed
@@ -43,6 +42,7 @@ func get_input(delta):
 
 func _physics_process(delta):
 	get_input(delta)
+	
 	velocity = move_and_collide(velocity*delta)
 
 
