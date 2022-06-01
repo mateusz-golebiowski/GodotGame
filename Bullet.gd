@@ -25,3 +25,8 @@ func _on_Area2D_body_shape_entered(body_rid, body, body_shape_index, local_shape
 		Global.score += 1
 		get_parent().remove_child(self)
 		queue_free()
+	if (body.is_in_group("enemy")):
+		body.call_deferred("explode")
+		Global.score += 5
+		get_parent().remove_child(self)
+		queue_free()

@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 21.2132
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
 rotation = 4.71239
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )

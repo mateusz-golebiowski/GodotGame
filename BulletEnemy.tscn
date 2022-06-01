@@ -25,7 +25,7 @@ animations = [ {
 radius = 5.99996
 height = 8.00007
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["enemyBullet"]]
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 

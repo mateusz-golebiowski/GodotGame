@@ -10,6 +10,7 @@ var rng = RandomNumberGenerator.new()
 var velocity = Vector2()
 var BulletEnemy = preload("res://BulletEnemy.tscn")
 var posY = 0
+var is_exploded = false 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
@@ -19,6 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+var id_exploded = false
 
 func move_enemy(delta):
 	velocity = Vector2()
@@ -42,3 +44,11 @@ func _physics_process(delta):
 	if position.x < -100: 
 		get_parent().remove_child(self)
 		queue_free()
+func explode():
+	if is_exploded:
+		return
+
+	is_exploded = true
+
+	get_parent().remove_child(self)
+	queue_free()
