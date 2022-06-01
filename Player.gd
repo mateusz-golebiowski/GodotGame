@@ -11,15 +11,26 @@ var velocity = Vector2()
 var Bullet = preload("res://Bullet.tscn")
 
 var lastShoot = OS.get_ticks_msec()
-
+var playedExplosion = false 
 func _ready():
 	Global.ammo = ammo
 	screen_size = get_viewport_rect().size
+	$AnimatedSprite.connect("animation_finished", self, "game_over")
 
-
+func game_over():
+	if($AnimatedSprite.animation == "explosion"):
+		get_tree().change_scene("res://GameOver.tscn")
 func _process(delta):
 	if health <= 0:
-		get_tree().change_scene("res://GameOver.tscn")
+		$AnimatedSprite.play('explosion')
+		if not playedExplosion: 
+			$Explosion.play()
+			playedExplosion = true
+		var scale = Vector2()
+		scale.x= 3
+		scale.y = 3
+		$AnimatedSprite.scale = scale
+
 
 func get_input(delta):
 	velocity = Vector2()
@@ -43,9 +54,10 @@ func get_input(delta):
 
 
 func _physics_process(delta):
-	get_input(delta)
-	
-	velocity = move_and_collide(velocity*delta)
+	if($AnimatedSprite.animation != "explosion"):
+		get_input(delta)
+		
+		velocity = move_and_collide(velocity*delta)
 
 
 

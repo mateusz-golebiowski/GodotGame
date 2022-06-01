@@ -12,8 +12,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if position.x < -100: 
+		get_parent().remove_child(self)
+		queue_free()
 
 func explode():
 	if is_exploded:
