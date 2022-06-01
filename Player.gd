@@ -36,6 +36,7 @@ func get_input(delta):
 		if OS.get_ticks_msec() - lastShoot > 100 and Global.ammo > 0:
 			Global.ammo -= 1;
 			Bullet.instance().init(self, 1000)
+			$Shoot.play()
 			lastShoot = OS.get_ticks_msec()
 	velocity = velocity.normalized() * speed
 

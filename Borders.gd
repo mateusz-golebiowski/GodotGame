@@ -3,11 +3,12 @@ extends StaticBody2D
 export(int) var tin = 0
 export(int) var tout = 0
 var thalf
-var win = OS.get_window_size()
+
 var shape
 var shapeowner
 
 func _ready():
+	var win = get_viewport().size
 	print(win.x)
 	print(win.y)
 	thalf = (tin + tout) /2

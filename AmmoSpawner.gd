@@ -22,6 +22,7 @@ func _set_ammo_trajectory(asteroid):
 
 func _set_ammo_position(asteroid):
 	var rect = get_viewport().size
+	print(rect.x)
 	asteroid.position = Vector2(rect.x, rand_range(0, rect.y))
 
 func _on_Timer_timeout():

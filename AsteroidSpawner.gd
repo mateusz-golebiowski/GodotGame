@@ -22,7 +22,7 @@ func _set_asteroid_trajectory(asteroid):
 
 func _set_asteroid_position(asteroid):
 	var rect = get_viewport().size
-	asteroid.position = Vector2(rect.x, rand_range(0, rect.y))
+	asteroid.position = Vector2(rect.x+100, rand_range(0, rect.y))
 
 func _on_Timer_timeout():
 	_spawn_asteroid() # Replace with function body.
