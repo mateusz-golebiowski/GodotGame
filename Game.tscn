@@ -53,29 +53,34 @@ margin_bottom = 40.0
 position = Vector2( 147, 794 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 10 )
+visibility_mode = 1
 
 [node name="down" type="TouchScreenButton" parent="MobileControl"]
 position = Vector2( 264, 1088 )
 rotation = 3.14159
 scale = Vector2( 2, 2 )
 normal = ExtResource( 10 )
+visibility_mode = 1
 
 [node name="left" type="TouchScreenButton" parent="MobileControl"]
 position = Vector2( 15, 1028 )
 rotation = 4.71239
 scale = Vector2( 2, 2 )
 normal = ExtResource( 10 )
+visibility_mode = 1
 
 [node name="right" type="TouchScreenButton" parent="MobileControl"]
 position = Vector2( 393, 902 )
 rotation = 1.5708
 scale = Vector2( 2, 2 )
 normal = ExtResource( 10 )
+visibility_mode = 1
 
 [node name="Shoot" type="TouchScreenButton" parent="MobileControl"]
 position = Vector2( 1696, 899 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 11 )
+visibility_mode = 1
 
 [connection signal="pressed" from="MobileControl/Up" to="Player" method="_on_Up_pressed"]
 [connection signal="released" from="MobileControl/Up" to="Player" method="_on_Up_released"]
