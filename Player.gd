@@ -14,6 +14,12 @@ var lastShoot = OS.get_ticks_msec()
 var playedExplosion = false 
 var is_exploded = false 
 
+var upPressed = false
+var leftPressed = false
+var rightPressed = false
+var downPressed = false
+var firePressed = false
+
 func _ready():
 	Global.ammo = ammo
 	screen_size = get_viewport_rect().size
@@ -37,15 +43,16 @@ func _process(delta):
 func get_input(delta):
 	velocity = Vector2()
 	var rect = get_viewport().size
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") or rightPressed:
 		velocity.x += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left") or leftPressed:
 		velocity.x -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") or downPressed:
 		velocity.y += 1
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up") or upPressed:
 		velocity.y -= 1
-	if Input.is_action_pressed("fire"):
+
+	if Input.is_action_pressed("fire") or firePressed:
 		if OS.get_ticks_msec() - lastShoot > 100 and Global.ammo > 0:
 			Global.ammo -= 1;
 			Bullet.instance().init(self, 1000)
@@ -81,3 +88,42 @@ func explode():
 	is_exploded = true
 	health -= 100
 	
+
+
+func _on_Up_pressed():
+	upPressed = true
+
+
+func _on_down_pressed():
+	downPressed = true
+
+func _on_left_pressed():
+	leftPressed = true
+
+
+func _on_right_pressed():
+	rightPressed = true
+
+
+func _on_Shoot_pressed():
+	firePressed = true
+
+
+func _on_Up_released():
+	upPressed = false # Replace with function body.
+
+
+func _on_down_released():
+	downPressed = false
+
+
+func _on_left_released():
+	leftPressed = false
+
+
+func _on_right_released():
+	rightPressed = false
+
+
+func _on_Shoot_released():
+	firePressed = false
