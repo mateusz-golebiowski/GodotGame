@@ -39,10 +39,6 @@ window/stretch/aspect="keep"
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
-[gui]
-
-theme/custom_font="res://assets/SpaceMono-Bold.ttf"
-
 [input]
 
 fire={
