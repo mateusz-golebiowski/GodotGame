@@ -75,11 +75,11 @@ func _on_Area2D_body_shape_entered(body_rid, body, body_shape_index, local_shape
 	if (body.is_in_group("asteroids")):
 		body.call_deferred("explode")
 		health -= 100
-		print(health)
+
 	if (body.is_in_group("ammo")):
 		body.call_deferred("destroy")
 		Global.ammo += 50
-		print(Global.ammo)
+
 
 func explode():
 	if is_exploded:

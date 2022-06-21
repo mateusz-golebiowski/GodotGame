@@ -9,8 +9,6 @@ var shapeowner
 
 func _ready():
 	var win = get_viewport().size
-	print(win.x)
-	print(win.y)
 	thalf = (tin + tout) /2
 	for extpos in [
 			[Vector2(thalf, 60+win.y/2), Vector2(tin - thalf, win.y/2 )],  #left
